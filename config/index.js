@@ -23,6 +23,9 @@ class ConfigManager {
 }
 
 const configTemplate = {
+    meta: {
+        'app-version': '1.0.1'
+    },
     mongoose: {
         connectionString: ''
     },

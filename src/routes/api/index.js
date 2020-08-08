@@ -3,7 +3,12 @@ const router = express.Router();
 const config = require('../../../config');
 const AWS = require('aws-sdk');
 const meta  = new AWS.MetadataService();
-
+//const config = require('../../../config');
+const APP_VERSION = config.getKey('meta/app-version') ;
+const whoami = {
+  'app-name': 'aws-mint-app',
+  'app-version': APP_VERSION
+}
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -16,7 +21,8 @@ router.get('/env', function(req, res, next) {
 });
 
 router.get('/whoami', function(req, res, next) {
-  res.send({'whoami':'Node Script'});
+  
+  res.send(whoami);
 });
 
 router.get('/aws-id', function(req, res, next) {
