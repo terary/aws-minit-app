@@ -1,0 +1,42 @@
+{
+  "name": "the-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/server-wrapper.js",
+    "dev": "node --inspect ./src/server-wrapper.js",
+    "watch:dev": "nodemon",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "src/*",
+      "public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "dependencies": {
+    "aws-sdk": "^2.729.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "install": "^0.13.0",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.4",
+    "npm": "^6.14.7",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "jest": "^26.2.2"
+  }
+}
