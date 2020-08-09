@@ -54,7 +54,8 @@ class AWSEnvironment {
         return AWSEnvironment.isAWS();
     }
     static isAWS() {
-        return process.env.HOSTNAME && process.env.HOSTNAME.indexOf('.internal') !== -1
+        
+        return process.env.HOSTNAME && process.env.HOSTNAME.indexOf('terary-msi') === -1
     }
 
 }
