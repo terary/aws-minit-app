@@ -3,6 +3,8 @@ const router = express.Router();
 const config = require('../../../config');
 const AWS = require('aws-sdk');
 const meta  = new AWS.MetadataService();
+const AWSEnvironment = require('./AWSEnvironment');
+
 //const config = require('../../../config');
 const APP_VERSION = config.getKey('meta/app-version') ;
 const whoami = {
@@ -35,13 +37,14 @@ router.get('/aws-id', function(req, res, next) {
   });
 });
 router.get('/aws', function(req, res, next) {
-  meta.request("/latest/meta-data", function(err, data){
-    if(err) {
-      res.send(end);
-    }else {
-      res.send(data);
-    }
-  });
+  res.send(AWSEnvironment.awsEnv);
+  // meta.request("/latest/meta-data", function(err, data){
+  //   if(err) {
+  //     res.send(end);
+  //   }else {
+  //     res.send(data);
+  //   }
+  // });
 });
 
 
